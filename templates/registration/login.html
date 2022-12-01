@@ -2,26 +2,54 @@
 {% block content %}
 
 <main class="form-signin text-center container">
-  <form>
+{% if form.errors %}
+  <div class="alert alert-danger">
+    <strong>Error!</strong> {{ form.errors }}
+  </div>
+  {% endif %}
 
-    <h1 class="h3 mb-3 fw-normal">Пожалуйста, войдите</h1>
+  <form method="post">
+      {% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal">Create new account</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Адрес эл. почты</label>
+      <input type="text" class="form-control" id="floatingInput1" name="username" placeholder="username">
+      <label for="floatingInput1">Username</label>
     </div>
+
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Пароль</label>
+      <input type="email" class="form-control" id="floatingInput2" name="email" placeholder="Email">
+      <label for="floatingInput2">Email</label>
     </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput3" name="first_name" placeholder="Your name">
+      <label for="floatingInput3">Your name</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput4" name="last_name" placeholder="Your surname">
+      <label for="floatingInput4">Your surname</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword5" placeholder="Password" name="password">
+      <label for="floatingPassword5">Password</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword6" placeholder="Password" name="password2">
+      <label for="floatingPassword6">Repeat your password</label>
+    </div>
+
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Запомнить меня
+        <a href="{% url 'password_reset' %}"> Forgot password? </a>
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
-    <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+    <p class="mt-5 mb-3 text-muted">Serz Gotovka inc.</p>
   </form>
 </main>
 

@@ -2,55 +2,34 @@
 {% block content %}
 
 <main class="form-signin text-center container">
-{% if form.errors %}
-  <div class="alert alert-danger">
-    <strong>Error!</strong> {{ form.errors }}
-  </div>
-  {% endif %}
-
   <form method="post">
-      {% csrf_token %}
-    <h1 class="h3 mb-3 fw-normal">Create new account</h1>
+  {% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal">Hello</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput1" name="username" placeholder="username">
-      <label for="floatingInput1">Username</label>
+      <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username">
+      <label for="floatingInput">Username</label>
     </div>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput2" name="email" placeholder="Email">
-      <label for="floatingInput2">Email</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+      <label for="floatingPassword">Password</label>
     </div>
-
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput3" name="first_name" placeholder="Your name">
-      <label for="floatingInput3">Your name</label>
-    </div>
-
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput4" name="last_name" placeholder="Your surname">
-      <label for="floatingInput4">Your surname</label>
-    </div>
-
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword5" placeholder="Password" name="password">
-      <label for="floatingPassword5">Password</label>
-    </div>
-
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword6" placeholder="Password" name="password2">
-      <label for="floatingPassword6">Repeat your password</label>
-    </div>
-
 
     <div class="checkbox mb-3">
       <label>
-        <a href="{% url 'password_reset' %}"> Forgot password? </a>
+          <a href="#"> Forgot password </a>
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
-    <p class="mt-5 mb-3 text-muted">Serz Gotovka inc.</p>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" >SignIn</button>
+    <p class="mt-5 mb-3 text-muted">© Serz Gotovka</p>
   </form>
 </main>
+
+
+
+
+
+</body>
 
 {% endblock %}

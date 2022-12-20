@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Book, Author, Genre
-from cart.cart import get_cart
-
-
 
 
 class IndexView(TemplateView):
@@ -11,15 +8,20 @@ class IndexView(TemplateView):
 
     def get(self, request):
         books = Book.objects.all()
-        numb = books.count()
-        authors = Author.objects.all().count()
-        params = {
+        numb_books = books.count()
+        authors = Author.objects.all()
+        numb_authors = authors.count()
+        genres = Genre.objects.all()
+        numb_genres = genres.count()
+        data = {
             'books': books,
-            'numb': numb,
-            'authors': authors
+            'numb_books': numb_books,
+            'authors': authors,
+            'numb_authors': numb_authors,
+            'genres': genres,
+            'numb_genres': numb_genres
         }
-        params = get_cart(request, params)
-        return render(request, self.template_name, params)
+        return render(request, self.template_name, data)
 
 
 class AuthorsView(TemplateView):
@@ -30,7 +32,6 @@ class AuthorsView(TemplateView):
         params = {
             'authors': authors
         }
-        params = get_cart(request, params)
         return render(request, self.template_name, params)
 
 
@@ -43,7 +44,6 @@ class BookView(TemplateView):
         params = {
             'book': book
         }
-        params = get_cart(request, params)
         return render(request, self.template_name, params)
 
 
@@ -56,7 +56,6 @@ class AuthorView(TemplateView):
         params = {
             'books': books
         }
-        params = get_cart(request, params)
         return render(request, self.template_name, params)
 
 class GenresView(TemplateView):
@@ -68,7 +67,6 @@ class GenresView(TemplateView):
         params = {
             'genres': genres
         }
-        params = get_cart(request, params)
         return render(request, self.template_name, params)
 
 
@@ -82,7 +80,6 @@ class GenreView(TemplateView):
             'genre': genre,
             'books': books
         }
-        params = get_cart(request, params)
         return render(request, self.template_name, params)
 
 
@@ -101,7 +98,6 @@ class SearchView(TemplateView):
         params = {
             'books': result
         }
-        params = get_cart(request, params)
         return render(request, self.template_name, params)
 
 

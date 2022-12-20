@@ -1,12 +1,14 @@
 {% extends "base.html" %}
+
 {% block content %}
 <header>
   <div class="bg-dark collapse" id="navbarHeader" style="">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">О нас</h4>
-          <p class="text-muted">Добавьте информацию об альбоме ниже, авторе или любом другом фоновом контексте. Составьте несколько предложений, чтобы люди могли почерпнуть полезные сведения. Затем свяжите их с сайтами социальных сетей или с контактной информацией.</p>
+          <h4 class="text-white">Добрый день</h4>
+          <p class="text-muted"> На нашем сайте вы можете найти {{ numb_books }} книг по {{ numb_genres }} разным жанрам
+          от {{ numb_authors }}-ти различных авторов. Желаем приятного поиска книги. </p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Контакты</h4>

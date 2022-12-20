@@ -8,10 +8,20 @@ class IndexView(TemplateView):
 
     def get(self, request):
         books = Book.objects.all()
-        numb = books.count()
-        authors = Author.objects.all().count()
-
-        return render(request, self.template_name, {'books': books, 'numb': numb, 'authors': authors})
+        numb_books = books.count()
+        authors = Author.objects.all()
+        numb_authors = authors.count()
+        genres = Genre.objects.all()
+        numb_genres = genres.count()
+        data = {
+            'books': books,
+            'numb_books': numb_books,
+            'authors': authors,
+            'numb_authors': numb_authors,
+            'genres': genres,
+            'numb_genres': numb_genres
+        }
+        return render(request, self.template_name, data)
 
 
 class AuthorsView(TemplateView):

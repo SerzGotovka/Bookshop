@@ -2,10 +2,10 @@
 {% block content %}
 <main class="form-signin text-center container">
 
-  {% if form.errors %}
+  {% if user_form.errors %}
 
     <div class="alert alert-danger">
-      <strong>Error!</strong> {{form.errors}}
+      <strong>Error!</strong> {{user_form.errors}}
     </div>
 
   {% endif %}

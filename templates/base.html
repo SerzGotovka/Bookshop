@@ -26,17 +26,24 @@
           <li><a href="#" class="nav-link px-2 text-white">О нас</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
+                <div class="text-end">
 
-        <div class="text-end">
-          <a type="button" class="btn btn-outline-light me-2" href="{%url 'login' %}">Войти</a>
-          <a type="button" class="btn btn-warning">Зарегистрироваться</a>
+            {% if user.is_authenticated %}
+                <span class=" px-2 text-white"> Hello, {{user.username}}!</span>
+                <a type="button" class="btn btn-outline-light me-2" href="{% url 'logout' %}"> LogOut</a>
+
+
+            {% else %}
+                    <a type="button" class="btn btn-outline-light me-2" href="{% url 'login' %}">SignIN</a>
+                    <a type="button" class="btn btn-warning" href="{% url 'accounts-SignUp' %}">Sign up </a>
+            {% endif %}
+
+
         </div>
       </div>
     </div>
 </header>
 {% block content %} {% endblock %}
+
 </body>
 </html>

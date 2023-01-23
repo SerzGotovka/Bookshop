@@ -49,6 +49,12 @@ class Book(models.Model):
         return reverse('cart-add', args=[self.id])
 
 
+    def delete_to_cart(self):
+        return reverse('delete-book', args=[self.id])
+
+
+
+
     display_genre.short_description = 'Genre'
 
 

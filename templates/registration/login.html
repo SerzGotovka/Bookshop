@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% block title %} Вход! {% endblock %}
 
 {% block content %}
 
@@ -20,7 +21,7 @@
 
     <div class="checkbox mb-3">
       <label>
-          <a href="#"> Forgot password </a>
+          <a href="{% url 'password_reset' %}"> Forgot password </a>
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit" >SignIn</button>
@@ -32,6 +33,6 @@
 
 
 
-</body>
+
 
 {% endblock %}
